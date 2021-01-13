@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <title>table html</title>
+</head>
+<body>
+<div class="ui container">
+    <div class="ui attached top segment">
+        <div class="ui action input">
+            <input type="text" placeholder="Anything...">
+            <button class="ui primary button">Filter</button>
+        </div>
+        <button class="ui primary button right floated">Add user</button>
+    </div>
+    <table class="ui attached selectable celled table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name <i class="angle up icon"></i></th>
+                <th>Last Name <i class="angle down icon"></i></th>
+                <th>Phone</th>
+                <th>E-mail</th>
+            <tr>
+        </thead>
+        <tbody> <!--class="ui loading segment"-->
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="5">
+                    <div class="ui right floated pagination mini menu">
+                        <a class="icon item">
+                            <i class="left chevron icon"></i>
+                        </a>
+                        <a class="item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="icon item">
+                            <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="ui attached info message">
+        <i class="close icon"></i>
+        <p>Выбран пользователь: <strong>Se Dofsdfsd</strong></p>
+        <p>Адрес проживания: <strong>9792 Mattis Ct</strong></p>
+        <p>Город: <strong>Waukesha</strong></p>
+        <p>Провинция/штат: <strong>WI</strong></p>
+        <p>Индекс: <strong>22178</strong></p>
+        <p>Описание: <strong>"amet rutrum sit nunc id fringilla placerat nec ipsum ipsum amet aenean molestie tellus ipsum aliquam sit odio in consectetur consectetur vitae facilisis tempor scelerisque ac eros sed fringilla etiam in pharetra"</strong>
+        </p>
+    </div>
+    <form class="ui form attached bottom segment">
+        <div class="five fields attached">
+            <div class="field">
+                <label>Id</label>
+                <div class="ui input">
+                    <input placeholder="Id" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>First Name</label>
+                <div class="ui input">
+                    <input placeholder="First Name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>Last Name</label>
+                <div class="ui input">
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>E-mail</label>
+                <div class="ui input">
+                    <input placeholder="E-mail" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>Phone</label>
+                <div class="ui input">
+                    <input placeholder="Phone" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="four fields">
+            <div class="field">
+                <label>City</label>
+                <div class="ui input">
+                    <input placeholder="City" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>State</label>
+                <div class="ui input">
+                    <input placeholder="State" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>Street Address</label>
+                <div class="ui input">
+                    <input placeholder="Street Address" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>Zip</label>
+                <div class="ui input">
+                    <input placeholder="Zip" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>Description</label>
+            <div class="ui input">
+                <input placeholder="Description" type="text">
+            </div>
+        </div>
+        <div class="ui blue submit button">Добавить</div>
+    </form>
+    <div class="ui bottom attached error message ">
+        <i class="icon exclamation"></i>
+        Пожалуйста заполните все поля.
+    </div>
+</div>
+</body>
+</html>
