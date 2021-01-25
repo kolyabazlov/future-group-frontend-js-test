@@ -1,0 +1,19 @@
+#root > div > table > thead > tr > th {
+    cursor: pointer;
+}
+table {
+    min-height: 474px;
+    height: 474px;
+    max-height: 474px;
+}
+tr {
+    cursor: pointer;
+}
+#root > div > form > div.five.fields.attached > div {
+    position: relative;
+}
+.form-error-message {
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+}

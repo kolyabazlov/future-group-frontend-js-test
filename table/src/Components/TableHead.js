@@ -10,6 +10,7 @@ export default function TableHead({sortItems, sortDir, setSortDir}) {
         <thead>
             <tr>
                 <th
+                    className="two wide"
                     onClick={() => {
                         sortItems("id");
                         setSortRouter("id");
@@ -20,6 +21,7 @@ export default function TableHead({sortItems, sortDir, setSortDir}) {
                     { sortRouter === "id" && !sortDir ? <i className="angle up icon"></i> : null}
                 </th>
                 <th
+                    className="three wide"
                     onClick={() => {
                         sortItems("firstName");
                         setSortRouter("firstName");
@@ -30,6 +32,7 @@ export default function TableHead({sortItems, sortDir, setSortDir}) {
                     { sortRouter === "firstName" && !sortDir ? <i className="angle up icon"></i> : null}
                 </th>
                 <th
+                    className="three wide"
                     onClick={() => {
                         sortItems("lastName");
                         setSortRouter("lastName");
@@ -40,6 +43,7 @@ export default function TableHead({sortItems, sortDir, setSortDir}) {
                     { sortRouter === "lastName" && !sortDir ? <i className="angle up icon"></i> : null}
                 </th>
                 <th
+                    className="four wide"
                     onClick={() => {
                         sortItems("email");
                         setSortRouter("email");
@@ -50,6 +54,7 @@ export default function TableHead({sortItems, sortDir, setSortDir}) {
                     { sortRouter === "email" && !sortDir ? <i className="angle up icon"></i> : null}
                 </th>
                 <th
+                    className="four wide"
                     onClick={() => {
                         sortItems("phone");
                         setSortRouter("phone");

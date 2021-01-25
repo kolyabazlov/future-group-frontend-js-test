@@ -1,10 +1,9 @@
 import React from "react";
 
-export default function TableRowInfo({itemInfo}) {
+export default function TableRowInfo({itemInfo, setSelectedRow}) {
     return (
         <div className="ui attached info message">
-            {console.log(itemInfo)}
-            <i className="close icon"></i>
+            <i className="close icon" onClick={ ()=> { setSelectedRow(false) } } />
             <p>Выбран пользователь: <strong>{ itemInfo.firstName + " " + itemInfo.lastName}</strong></p>
             <p>Адрес проживания: <strong>{ itemInfo.address.streetAddress }</strong></p>
             <p>Город: <strong>{ itemInfo.address.city }</strong></p>
