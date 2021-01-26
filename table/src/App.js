@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TableRow from "./Components/TableRow";
 import TableHead from "./Components/TableHead";
-import TablePagination from "./Components/TablePagination";
-import TableForm from "./Components/TableForm";
-import TableRowInfo from "./Components/TableRowInfo";
+import Pagination from "./Components/Pagination";
+import AddUserForm from "./Components/AddUserForm";
+import RowInfo from "./Components/RowInfo";
 
 function App() {
 
@@ -14,11 +14,10 @@ function App() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
-    const [isRowInfo, setIsRowInfo] = useState(false);
     const [selectedRow, setSelectedRow] = useState(false);
-    const [isAddItem, setIsAddItem] = useState(false);
+    const [isAddUser, setIsAddUser] = useState(false);
     const [filter, setFilter] = useState("");
-    const [itemInfo, setItemInfo] = useState("smth");
+    const [itemInfo, setItemInfo] = useState("");
     const [sortDir, setSortDir] = useState(true);
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -90,25 +89,33 @@ function App() {
         return (
             <div className="ui container">
                 <div className="ui attached top segment">
-                    <div className="ui action input">
-                        <input
-                            placeholder="Anything..."
-                            value={filter}
-                            onChange={e => {setFilter(e.target.value); console.log(filter)}}
-                        />
-                        <button
-                            className="ui green button"
-                            type="button"
-                            onClick={() => {filterData()}}>
-                            Filter
-                        </button>
+                    <div className="">
+                        <div className="ui grid">
+                            <div className="four wide computer five wide tablet ten wide mobile left floated column">
+                                <div className="ui action input item fluid">
+                                    <input
+                                        placeholder="Anything..."
+                                        value={filter}
+                                        onChange={e => {setFilter(e.target.value); console.log(filter)}}
+                                    />
+                                    <button
+                                        className="ui green button"
+                                        type="button"
+                                        onClick={() => {filterData()}}>
+                                        Filter
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="four wide column right floated">
+                                <button
+                                    className="ui green button right floated"
+                                    type="submit"
+                                    onClick={() => {setIsAddUser(true)}}>
+                                    Add user
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <button
-                        className="ui green button right floated"
-                        type="submit"
-                        onClick={() => {setIsAddItem(true)}}>
-                        Add user
-                    </button>
                 </div>
                 <table className="ui green attached selectable celled table fixed stackable small">
                     <TableHead sortItems={sortItems} sortDir={sortDir} setSortDir={setSortDir}/>
@@ -117,17 +124,17 @@ function App() {
                         {
                             filteredItems.slice((currentPage - 1) * rowsPerPage, (currentPage - 1) * rowsPerPage + rowsPerPage).map((data, index) => {
                                 return (
-                                    <TableRow key={index} data={data} setIsRowInfo={setIsRowInfo} showItem={showItem} setSelectedRow={setSelectedRow} selectedRow={selectedRow}/>
+                                    <TableRow key={index} data={data} showItem={showItem} setSelectedRow={setSelectedRow} selectedRow={selectedRow}/>
                                 )
                             })
                         }
                     </tbody>
                     <tfoot className="table-pagination">
-                        <TablePagination setCurrentPage={setCurrentPage} currentPage={currentPage} totalPages={totalPages}/>
+                        <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage} totalPages={totalPages}/>
                     </tfoot>
                 </table>
-                { selectedRow !== false ? <TableRowInfo itemInfo={itemInfo} setSelectedRow={setSelectedRow} /> : null }
-                { isAddItem ? <TableForm addItems={addItems}  setIsAddItem={setIsAddItem} /> : null }
+                { selectedRow !== false ? <RowInfo itemInfo={itemInfo} setSelectedRow={setSelectedRow} /> : null }
+                { isAddUser ? <AddUserForm addItems={addItems} setIsAddUser={setIsAddUser} /> : null }
             </div>
         );
 

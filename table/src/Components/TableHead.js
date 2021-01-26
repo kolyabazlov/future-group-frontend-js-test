@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react";
-import clsx from "clsx";
+import React, {useState} from "react";
+import PropTypes from "prop-types";
 
-export default function TableHead({sortItems, sortDir, setSortDir}) {
+function TableHead({sortItems, sortDir, setSortDir}) {
 
-    //const [isDir, setIsDir] = useState(false);
-    const [sortRouter, setSortRouter] = useState();
+    const [sortRouter, setSortRouter] = useState("");
 
     return (
         <thead>
@@ -68,3 +67,10 @@ export default function TableHead({sortItems, sortDir, setSortDir}) {
         </thead>
     )
 }
+TableHead.propTypes = {
+    sortItems: PropTypes.func,
+    sortDir: PropTypes.bool,
+    setSortDir: PropTypes.func
+};
+
+export default TableHead;

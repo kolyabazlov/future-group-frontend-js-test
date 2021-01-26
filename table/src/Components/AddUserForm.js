@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form"
 import clsx from "clsx";
+import PropTypes from "prop-types";
 
-export default function TableForm({addItems, setIsAddItem}) {
+function AddUserForm({addItems, setIsAddUser}) {
 
     const { register, errors, handleSubmit } = useForm();
 
@@ -21,7 +22,7 @@ export default function TableForm({addItems, setIsAddItem}) {
             },
             "description": data.description
         });
-        console.log(JSON.stringify(data))
+        setIsAddUser(false);
     };
 
  return (
@@ -53,7 +54,7 @@ export default function TableForm({addItems, setIsAddItem}) {
                          ref={register({
                              required: true,
                              pattern: {
-                                 value: /^[A-Za-z]+$/i
+                                 value: /^[A-Za-z]+$/i //eslint-disable-line
                              }
                          })}
                      />
@@ -84,7 +85,7 @@ export default function TableForm({addItems, setIsAddItem}) {
                          type="text"
                          ref={register({
                              required: true,
-                             pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                             pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ //eslint-disable-line
                          })}
                      />
                  </div>
@@ -159,7 +160,13 @@ export default function TableForm({addItems, setIsAddItem}) {
              </div>
          </div>
          <button className="ui green submit button" type="submit">Добавить</button>
-         <div className="ui grey submit button right floated" onClick={() => { setIsAddItem(false) } }>Отменить</div>
+         <div className="ui grey submit button right floated" onClick={() => { setIsAddUser(false) } }>Отменить</div>
      </form>
  )
 }
+
+AddUserForm.propTypes = {
+    addItems: PropTypes.func,
+    setIsAddUser: PropTypes.func
+};
+export default AddUserForm;

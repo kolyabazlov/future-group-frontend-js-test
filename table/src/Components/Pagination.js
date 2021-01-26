@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
 
-function TablePagination({ setCurrentPage, currentPage, totalPages }) {
+function Pagination({ setCurrentPage, currentPage, totalPages }) {
 
     const [pages, setPages] = useState([]);
 
@@ -102,10 +102,10 @@ function TablePagination({ setCurrentPage, currentPage, totalPages }) {
     )
 }
 
-TablePagination.propTypes = {
+Pagination.propTypes = {
     setCurrentPage: PropTypes.func,
     currentPage: PropTypes.number,
     totalPages: PropTypes.number
 };
 
-export default TablePagination;
+export default Pagination;
