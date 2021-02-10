@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 
 function Pagination({ setCurrentPage, currentPage, totalPages }) {
 
@@ -21,6 +22,7 @@ function Pagination({ setCurrentPage, currentPage, totalPages }) {
 
     useEffect(() => {
         setPages(fetchPageNumbers());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[totalPages, currentPage]);
 
     function fetchPageNumbers() {
@@ -68,31 +70,31 @@ function Pagination({ setCurrentPage, currentPage, totalPages }) {
                     {
                         pages.map((page, index) => {
                             if (page === LEFT_PAGE) return (
-                                <a
+                                <div
                                     key={index}
                                     className="icon item"
                                     onClick={ () => { setCurrentPage(currentPage - 5) } }
                                 >
                                     <i className="angle double left icon" />
-                                </a>
+                                </div>
                             );
                             if (page === RIGHT_PAGE) return (
-                                <a
+                                <div
                                     key={index}
                                     className="icon item"
                                     onClick={ () => { setCurrentPage(currentPage + 5) } }
                                 >
                                     <i className="angle double right icon" />
-                                </a>
+                                </div>
                             );
                             return (
-                                <a
+                                <div
                                     key={index}
-                                    className="item"
+                                    className={clsx("item", page === currentPage ? "active" : null)}
                                     onClick={ () => { setCurrentPage(page) } }
                                 >
                                     { page }
-                                </a>
+                                </div>
                             )
                         })
                     }

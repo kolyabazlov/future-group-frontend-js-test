@@ -8,7 +8,7 @@ import RowInfo from "./Components/RowInfo";
 function App() {
 
     const rowsPerPage = 10;
-    const url = "http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}";
+    const url = "http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}";
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -43,8 +43,6 @@ function App() {
             );
     }, []);
     useEffect(() => {
-        //Здесь высчитывание количества страниц после фильтра
-        setFilteredItems(items);
         setTotalPages(Math.ceil( filteredItems.length / rowsPerPage));
     },[filteredItems, items]);
     function sortItems(key) {
@@ -83,6 +81,7 @@ function App() {
             let includesPhone = item.phone.toString().includes(filter);
             return (includesId ||includesFirstName || includesLastName || includesEmail || includesPhone)
         }));
+        console.log("filetr");
         setCurrentPage(1);
     }
 
@@ -96,7 +95,7 @@ function App() {
                                     <input
                                         placeholder="Anything..."
                                         value={filter}
-                                        onChange={e => {setFilter(e.target.value); console.log(filter)}}
+                                        onChange={e => {setFilter(e.target.value)}}
                                     />
                                     <button
                                         className="ui green button"

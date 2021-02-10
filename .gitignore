@@ -1,5 +1,7 @@
 .idea
 .mockup/semantic
+.table/build
+
 # Logs
 logs
 *.log

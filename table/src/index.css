@@ -9,6 +9,9 @@ table {
 tr {
     cursor: pointer;
 }
+#root > div > table > tfoot > tr > th > div > div {
+    cursor: pointer;
+}
 #root > div > form > div.five.fields.attached > div {
     position: relative;
 }
