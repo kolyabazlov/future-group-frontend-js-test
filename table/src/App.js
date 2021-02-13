@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import TableRow from "./Components/TableRow";
 import TableHead from "./Components/TableHead";
 import Pagination from "./Components/Pagination";
@@ -17,7 +17,7 @@ function App() {
     const [selectedRow, setSelectedRow] = useState(false);
     const [isAddUser, setIsAddUser] = useState(false);
     const [filter, setFilter] = useState("");
-    const [itemInfo, setItemInfo] = useState("");
+    const [rowData, setRowData] = useState(false);
     const [sortDir, setSortDir] = useState(true);
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -66,9 +66,11 @@ function App() {
         }
 
     }
-    function showItem(data) {
-        setItemInfo(data);
-    }
+
+    const handleRowData = useCallback((data) => {
+        setRowData(data);
+    }, []);
+
     function addItems(data) {
         setItems([data, ...items]);
     }
@@ -81,9 +83,10 @@ function App() {
             let includesPhone = item.phone.toString().includes(filter);
             return (includesId ||includesFirstName || includesLastName || includesEmail || includesPhone)
         }));
-        console.log("filetr");
         setCurrentPage(1);
     }
+
+
 
         return (
             <div className="ui container">
@@ -123,7 +126,7 @@ function App() {
                         {
                             filteredItems.slice((currentPage - 1) * rowsPerPage, (currentPage - 1) * rowsPerPage + rowsPerPage).map((data, index) => {
                                 return (
-                                    <TableRow key={index} data={data} showItem={showItem} setSelectedRow={setSelectedRow} selectedRow={selectedRow}/>
+                                    <TableRow key={index} data={data} handleRowData={handleRowData} setSelectedRow={setSelectedRow} selectedRow={selectedRow}/>
                                 )
                             })
                         }
@@ -132,7 +135,7 @@ function App() {
                         <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage} totalPages={totalPages}/>
                     </tfoot>
                 </table>
-                { selectedRow !== false ? <RowInfo itemInfo={itemInfo} setSelectedRow={setSelectedRow} /> : null }
+                { rowData !== false ? <RowInfo rowData={rowData} handleRowData={handleRowData} /> : null }
                 { isAddUser ? <AddUserForm addItems={addItems} setIsAddUser={setIsAddUser} /> : null }
             </div>
         );

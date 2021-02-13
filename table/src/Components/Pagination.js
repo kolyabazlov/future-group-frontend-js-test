@@ -23,6 +23,7 @@ function Pagination({ setCurrentPage, currentPage, totalPages }) {
     useEffect(() => {
         setPages(fetchPageNumbers());
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        console.log(currentPage);
     },[totalPages, currentPage]);
 
     function fetchPageNumbers() {
@@ -39,6 +40,7 @@ function Pagination({ setCurrentPage, currentPage, totalPages }) {
             switch (true) {
                 // handle: (1) < {5 6} [7] {8 9} (10)
                 case (hasLeftSpill && !hasRightSpill): {
+                    // eslint-disable-next-line react-hooks/exhaustive-deps
                     const extraPages = range(startPage - spillOffset, startPage - 1);
                     pages = [LEFT_PAGE, ...extraPages, ...pages];
                     break;
@@ -73,7 +75,13 @@ function Pagination({ setCurrentPage, currentPage, totalPages }) {
                                 <div
                                     key={index}
                                     className="icon item"
-                                    onClick={ () => { setCurrentPage(currentPage - 5) } }
+                                    onClick={ () => {
+                                        if (currentPage <= 5) {
+                                            setCurrentPage(1)
+                                        } else {
+                                            setCurrentPage(currentPage - 5)
+                                        }
+                                    } }
                                 >
                                     <i className="angle double left icon" />
                                 </div>
@@ -82,7 +90,13 @@ function Pagination({ setCurrentPage, currentPage, totalPages }) {
                                 <div
                                     key={index}
                                     className="icon item"
-                                    onClick={ () => { setCurrentPage(currentPage + 5) } }
+                                    onClick={ () => {
+                                        if (currentPage >= totalPages - 5) {
+                                            setCurrentPage(totalPages)
+                                        } else {
+                                            setCurrentPage(currentPage + 5)
+                                        }
+                                    } }
                                 >
                                     <i className="angle double right icon" />
                                 </div>
