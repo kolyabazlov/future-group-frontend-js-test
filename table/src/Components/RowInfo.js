@@ -26,10 +26,10 @@ RowInfo.propTypes = {
             phone: PropTypes.string.isRequired,
             description: PropTypes.any,
             address: PropTypes.shape({
-                    streetAddress: PropTypes.any.isRequired,
-                    city: PropTypes.any.isRequired,
-                    state: PropTypes.any.isRequired,
-                    zip: PropTypes.any.isRequired
+                    streetAddress: PropTypes.any,
+                    city: PropTypes.any,
+                    state: PropTypes.any,
+                    zip: PropTypes.any
                 }).isRequired
         }).isRequired,
     handleRowData: PropTypes.func

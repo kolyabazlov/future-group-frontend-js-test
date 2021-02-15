@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form"
 import clsx from "clsx";
 import PropTypes from "prop-types";
 
 function AddUserForm({addItems, setIsAddUser}) {
 
-    const { register, errors, handleSubmit } = useForm();
+    const { register, errors, handleSubmit, formState } = useForm({
+        mode: "onChange"
+    });
+    const { isValid } = formState;
+
+    useEffect(() => {
+    }, [formState]);
 
     const onSubmit = data => {
         addItems({
@@ -152,14 +158,18 @@ function AddUserForm({addItems, setIsAddUser}) {
          <div className="field">
              <label>Description</label>
              <div className="ui input">
-                 <input
+                 <textarea
                      name="description"
-                     type="text"
+                     rows="3"
                      ref={register}
                  />
              </div>
          </div>
-         <button className="ui green submit button" type="submit">Добавить</button>
+         <button
+             className={ clsx("ui green submit button", isValid ? "" : "disabled")}
+             type="submit"
+         >Добавить
+         </button>
          <div className="ui grey submit button right floated" onClick={() => { setIsAddUser(false) } }>Отменить</div>
      </form>
  )

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { v4 as uuidv4 } from "uuid";
 
 function TableRow({data, handleRowData , selectedRow, setSelectedRow}) {
     // fix если один и тот же id выделяются все с таким айди возможно фикс с uuid вместо id

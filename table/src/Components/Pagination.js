@@ -23,7 +23,6 @@ function Pagination({ setCurrentPage, currentPage, totalPages }) {
     useEffect(() => {
         setPages(fetchPageNumbers());
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        console.log(currentPage);
     },[totalPages, currentPage]);
 
     function fetchPageNumbers() {

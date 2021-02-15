@@ -1,6 +1,6 @@
 .idea
-.mockup/semantic
-.table/build
+mockup/semantic/
+table/build/
 
 # Logs
 logs
