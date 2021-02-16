@@ -1,6 +1,5 @@
-
+Тестовое задание на должность front-end разработчика.  
 Визуализация сгенерированных данных пользователей в виде таблицы.  
-
 
 React + Semantic-ui (only css, adaptive)   
 Использованные модули: PropTypes, clsx, react-hook-form  
