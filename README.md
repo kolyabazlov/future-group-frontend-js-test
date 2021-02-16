@@ -1,4 +1,4 @@
-Тестовое задание на должность front-end разработчика.  
+Тестовое задание на должность frontend разработчика.  
 Визуализация сгенерированных данных пользователей в виде таблицы.  
 
 React + Semantic-ui (only css, adaptive)   
@@ -8,6 +8,6 @@ Docker container ready
 Само тестовое задание находится здесь  
 > https://github.com/fugr-ru/frontend-javascript-test/blob/master/README.md  
   
-Результат можно глянуть можно здесь       
+Результат можно увидеть можно здесь       
 > http://future-group.musicdespot.com/
  
