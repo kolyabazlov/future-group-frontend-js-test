@@ -1,4 +1,4 @@
-#root > div > table > thead > tr > th {
+#root > div > div > table > thead > tr > .table-head-cell {
     cursor: pointer;
 }
 table {
@@ -15,8 +15,6 @@ tr {
 #root > div > form > div.five.fields.attached > div {
     position: relative;
 }
-#root > div > div > div.ui.grid {
-}
 #root > div > div > div > div > div.four.wide.column > button {
     line-height: 1.15em;
     white-space: nowrap;
@@ -26,6 +24,9 @@ tr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.table-head-cell {
+    cursor: pointer;
 }
 .form-error-message {
     position: absolute;

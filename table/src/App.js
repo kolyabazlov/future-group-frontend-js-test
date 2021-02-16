@@ -10,10 +10,7 @@ import HelloLayer from "./Components/HelloLayer";
 function App() {
 
     const rowsPerPage = 10;
-    const urlSmall = "http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}";
-    const urlBig = "http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}";
 
-    const [url, setUrl] = useState(urlBig);
     const [isUrlSelected, setIsUrlSelected] = useState(false);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -27,7 +24,8 @@ function App() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
-    useEffect(() => {
+    function fetchUrl(url) {
+        setIsUrlSelected(true);
         fetch(url)
             .then(res => res.json())
             .then(
@@ -36,14 +34,15 @@ function App() {
                     setItems(result);
                     setFilteredItems(result);
                     setTotalPages(Math.ceil( result.length / rowsPerPage));
-                    },
+                },
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
                     console.log(error)
                 }
             );
-    }, [url]);
+    }
+
 
     useEffect(() => {
         setTotalPages(Math.ceil( filteredItems.length / rowsPerPage));
@@ -93,7 +92,7 @@ function App() {
         return (
             isUrlSelected === false
             ?
-                <HelloLayer setUrl={setUrl} setIsUrlSelected={setIsUrlSelected} urlSmall={urlSmall} urlBig={urlBig}/>
+                <HelloLayer fetchUrl={fetchUrl}/>
             :
             <div className="ui container">
                 <div>
